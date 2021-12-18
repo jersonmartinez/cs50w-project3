@@ -2,14 +2,14 @@
 
 {% load crispy_forms_tags %}
 {% block title %}
-Shopping Cart
+Carrito de compras
 {% endblock %}
 
 {% block body %}
-<h2>Pending Orders</h2>
+<h2>Órdenes pendientes</h2>
 <ul>
 {% for order in pending_orders %}
-    <li>{{order}} <a href="cancel/{{order.id}}">Cancel Order</a>
+    <li>{{order}} <a href="cancel/{{order.id}}">Cancelar orden</a>
         <ul>
             {% for orderitem in order.orderitem_set.all %}
                 <li>{{orderitem}}</li>
@@ -17,7 +17,7 @@ Shopping Cart
         </ul></li>
 {% endfor %}
 </ul>
-<h2>Completed Orders</h2>
+<h2>Órdenes completadas</h2>
 <ul>
 {% for order in completed_orders %}
     <li>{{order}}</li>
@@ -28,7 +28,7 @@ Shopping Cart
     </ul></li>
 {% endfor %}
 </ul>
-<h2>Canceled Orders</h2>
+<h2>Órdenes canceladas</h2>
 <ul>
 {% for order in canceled_orders %}
     <li>{{order}}</li>

@@ -24,7 +24,7 @@ Carrito de compras
         $("<div></div>").appendTo('body')
            .html('<div><h3> Por favor, confirmar aquí.</h3></div>')
            .dialog({
-                title: "Confotm Dialog",
+                title: "Confirmar diálogo",
                 width:500, height:300,
                 modal:true,
                 resizable: false,
@@ -38,7 +38,7 @@ Carrito de compras
                               data:{'key':key}, //if you want to send any data to view
                               url:'/get_viewerModal/' // your url that u write in action in form tag
                           }).done(function(result){
-                               alert("am done") //this will executes after your view executed
+                               alert("Está listo") //this will executes after your view executed
                           })
                      },
                     Cancel: function() {

@@ -21,23 +21,23 @@
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-          <a class="navbar-brand mr-4" href="/">Pinnochio Pizza</a>
+          <a class="navbar-brand mr-4" href="/">Antonio's Pizza</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="/">Menu</a>
+              <a class="nav-item nav-link" href="/">Menú</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
               {% if user.is_authenticated %}
-                <a class="nav-item nav-link" href="/cart">Shopping Cart</a>
-                <a class="nav-item nav-link" href="/orderlist">Pending Orders</a>
-                <a class="nav-item nav-link" href="/users/logout">Log out</a>
+                <a class="nav-item nav-link" href="/cart">Carrito de compras</a>
+                <a class="nav-item nav-link" href="/orderlist">Órdenes pendientes</a>
+                <a class="nav-item nav-link" href="/users/logout">Cerrar sesión</a>
               {% else %}
-                <a class="nav-item nav-link" href="/users/login">Login</a>
-                <a class="nav-item nav-link" href="/users/register">Register</a>
+                <a class="nav-item nav-link" href="/users/login">Iniciar sesión</a>
+                <a class="nav-item nav-link" href="/users/register">Registrarse</a>
               {% endif %}
           </div>
         </div>
@@ -54,8 +54,6 @@
         {% endif %}
         {% block body %}{% endblock %}
     </main>
-
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
