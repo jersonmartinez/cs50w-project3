@@ -1,45 +1,42 @@
-# Project 3
-This repository contains the code for project 3 of *CS50's Web Programming with Python and JavaScript* implementing the *Pizza* django application.
+# Proyecto 3
 
-## Filestructure
+Este repositorio contiene el código para el proyecto 3 de Programación Web de *CS50 con Python y JavaScript* implementando la aplicación *Pizza* en *Django*.
 
-According to the specifications of Django this repository contains one main directory for the whole *Pizza* Django Project as well as one directory for each of the two Django Apps: *Orders* and *Users*
+## Estructura de archivos
+
+De acuerdo con las especificaciones de Django, este repositorio contiene un directorio principal para todo el *Pizza*, así como un directorio para cada una de las dos aplicaciones Django: *Pedidos* y *Usuarios*
 
 ### Pizza
 
-There have been only very minor changes to the files in this directory relative to their default contents when they created by the Django `startproject` command.
+Solo ha habido cambios muy pequeños en los archivos de este directorio en relación con su contenido predeterminado cuando se crearon con el comando `startproject` de Django.
 
-Those changes include
+Esos cambios incluyen
 
-* *settings.py*: Some additional lines in the end to enable using some additional Features such as *Crispy Forms*.
+* *settings.py*: Algunas líneas adicionales al final para permitir el uso de algunas funciones adicionales como *Crispy Forms*.
 
-* *urls.py*: Urlpatterns to include the urls specified in users and orders module.
+* *urls.py*: Patrones de URL para incluir las URL especificadas en el módulo de usuarios y pedidos.
 
-### Orders
+### Pedidos
 
-The Orders Application contains the whole logic for the implementation of both the Menu as well as the ordering process. In fact it contains everything except the User Registration / Log In functionality.
+La Aplicación de Pedidos contiene toda la lógica para la implementación tanto del Menú como del proceso de pedido. De hecho, contiene todo excepto la funcionalidad de registro / inicio de sesión de usuario.
 
-In the templates directory one can find the main layout template which is then extended by the templates for the Menu / Index page (index.html), the Shopping Cart page (cart.html), the Adding Item page (add.html) and the Order overview (orderlist.html).
+En el directorio de plantillas se puede encontrar la plantilla de diseño principal que luego se amplía con las plantillas para la página de menú / índice (index.html), la página del carrito de compras (cart.html), la página de adición de artículo (add.html) y la descripción general del pedido (orderlist.html).
 
-In have chosen to create the following models:
+En hemos optado por crear los siguientes modelos:
 
-* *MenuItem*: This is one Item of the Menu like a Small Regular Cheese Pizza (each size is a different MenuItem)
-* *Topping*: Toppings that can be added to a pizza.
-* *Extras*: Extras that can be added to a product. (Currently only Extra Cheese for all Subs and Onions etc. for Steak+Cheese Sub). Which Extras can be added to which product is controlled through a Many to Many relationship.
-* *OrderItem*: Item that has been configured and added to an Order. Contains a ForeignKey reference to the MenuItem as well as many to many relationships describing which Toppings or Extras have been added.
-* *Order*: One Order contains of all the Order Items that have been added to this order and is assigned to a status (Open (Shopping Cart), Pending, Completed, Canceled)
+* *MenuItem*: Este es un elemento del menú como una pizza de queso regular pequeña (cada tamaño es un elemento de menú diferente)
+* *Coberturas*: Coberturas que se pueden agregar a una pizza.
+* *Extras*: Extras que se pueden agregar a un producto. (Actualmente, solo queso extra para todos los subs y cebollas, etc. para Steak + Cheese Sub). Qué extras se pueden agregar a qué producto se controla a través de una relación de muchos a muchos.
+* *OrderItem*: artículo que se ha configurado y agregado a un pedido. Contiene una referencia ForeignKey al MenuItem, así como muchas a muchas relaciones que describen qué ingredientes o extras se han agregado.
+* *Pedido*: Un pedido contiene todos los artículos de pedido que se han agregado a este pedido y se les asigna un estado (Abierto (carrito de compras), Pendiente, Completado, Cancelado)
 
-To enable a user to customize and add an OrderItem I have used a django ModelForm based on the OrderItem Model.
+Para permitir que un usuario personalice y agregue un artículo de pedido, he usado un ModelForm de django basado en el modelo de artículo de pedido.
 
-### Users
+### Usuarios
 
-For the log in part I completely rely on the built in log in view, whereas for the registration I have slightly customize the view using a slightly modified version of the built in UserCreationForm that adds first and last name.
-To improve the aesthetics of the forms I format them using *Crispy* Forms in my templates.
+Para el registro, en parte, confío completamente en la vista de inicio de sesión incorporada, mientras que para el registro he personalizado ligeramente la vista usando una versión ligeramente modificada del UserCreationForm incorporado que agrega nombre y apellido.
+Para mejorar la estética de los formularios, les doy formato usando * Crispy * Forms en mis plantillas.
 
-## Usage
+## Toque personal / Ver y cancelar pedidos
 
-To see a quick walkthrough of the project check this [Video](https://youtu.be/j41qNQd8erI).
-
-## Personal Touch / View and Cancel Orders
-
-My Personal Touch was adding an additional page for the user where he can see all his Pending, Completed and Canceled Orders as well as being able to cancel his pending orders in case he changes his mind.
+Mi toque personal, estaba agregando una página adicional para el usuario donde puede ver todos sus pedidos pendientes, completados y cancelados, así como también poder cancelar sus pedidos pendientes en caso de que cambie de opinión.

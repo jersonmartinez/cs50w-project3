@@ -2,19 +2,19 @@
 
 {% load crispy_forms_tags %}
 {% block title %}
-Shopping Cart
+Carrito de compras
 {% endblock %}
 
 {% block body %}
-<h2>Shopping Cart</h2>
+<h2>Carrito de compras</h2>
 <ul>
 {% for orderitem in orderitems %}
-    <li>{{orderitem}} <a href="remove/{{orderitem.id}}">Remove</a></li>
+    <li>{{orderitem}} <a href="remove/{{orderitem.id}}">Remover</a></li>
 {% endfor %}
 </ul>
 <h4>Total: {{order.total}}</h2>
 <form action = "/place/{{order.id}}" onsubmit="return confirm('Please confirm your oder of: {% for orderitem in orderitems %}\n {{orderitem}} {%endfor%} \n For a total of:{{order.total}}');">
-    <button class = "btn btn-outline-info" type="submit">Place Order</button>
+    <button class = "btn btn-outline-info" type="submit">Lugar de pedido</button>
 </form>
 {% endblock %}
 
@@ -22,9 +22,9 @@ Shopping Cart
 <script>
     jQuery("#confirm").click(function(){
         $("<div></div>").appendTo('body')
-           .html('<div><h3> write your message for confirm dialog</h3></div>')
+           .html('<div><h3> Por favor, confirmar aquí.</h3></div>')
            .dialog({
-                title: "Confotm Dialog" ,
+                title: "Confotm Dialog",
                 width:500, height:300,
                 modal:true,
                 resizable: false,

@@ -4,7 +4,7 @@
 {% block title %}Registration{% endblock %}
 
 {% block body %}
-<h1>Register</h1>
+<h1>Registrarse</h1>
 {% if message %}
     <div>
         {{ message }}
@@ -14,17 +14,17 @@
     <form method="post">
         {% csrf_token %}
         <fieldset class="form-group">
-            <legend class = "border_bottom mb-4">Register</legend>
+            <legend class = "border_bottom mb-4">Registrarse</legend>
             {{ form|crispy }}
         </fieldset>
         <div class="form-group">
-            <button class = "btn btn-outline-info" type="submit">Sign Up</button>
+            <button class = "btn btn-outline-info" type="submit">Registrarse ahora</button>
         </div>
 
     </form>
     <div class="border-top pt-3">
         <small class = "text-muted">
-            Already Registered ? <a class = "ml-2" href="/users/login">Log In</a>
+            ¿Ya estás registrado? <a class = "ml-2" href="/users/login">Iniciar sesión</a>
         </small>
     </div>
 </div>
