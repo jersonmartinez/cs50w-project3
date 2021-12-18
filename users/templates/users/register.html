@@ -1,0 +1,31 @@
+{% extends "orders/layout.html" %}
+
+{% load crispy_forms_tags %}
+{% block title %}Registration{% endblock %}
+
+{% block body %}
+<h1>Register</h1>
+{% if message %}
+    <div>
+        {{ message }}
+    </div>
+{% endif %}
+<div class="content-section">
+    <form method="post">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class = "border_bottom mb-4">Register</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class = "btn btn-outline-info" type="submit">Sign Up</button>
+        </div>
+
+    </form>
+    <div class="border-top pt-3">
+        <small class = "text-muted">
+            Already Registered ? <a class = "ml-2" href="/users/login">Log In</a>
+        </small>
+    </div>
+</div>
+{% endblock %}

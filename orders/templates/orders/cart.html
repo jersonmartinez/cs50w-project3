@@ -1,0 +1,51 @@
+{% extends "orders/layout.html" %}
+
+{% load crispy_forms_tags %}
+{% block title %}
+Shopping Cart
+{% endblock %}
+
+{% block body %}
+<h2>Shopping Cart</h2>
+<ul>
+{% for orderitem in orderitems %}
+    <li>{{orderitem}} <a href="remove/{{orderitem.id}}">Remove</a></li>
+{% endfor %}
+</ul>
+<h4>Total: {{order.total}}</h2>
+<form action = "/place/{{order.id}}" onsubmit="return confirm('Please confirm your oder of: {% for orderitem in orderitems %}\n {{orderitem}} {%endfor%} \n For a total of:{{order.total}}');">
+    <button class = "btn btn-outline-info" type="submit">Place Order</button>
+</form>
+{% endblock %}
+
+{% block script %}
+<script>
+    jQuery("#confirm").click(function(){
+        $("<div></div>").appendTo('body')
+           .html('<div><h3> write your message for confirm dialog</h3></div>')
+           .dialog({
+                title: "Confotm Dialog" ,
+                width:500, height:300,
+                modal:true,
+                resizable: false,
+                show: { effect: 'drop', direction: "left" },
+                hide:{effect:'blind'}
+
+                buttons: {
+                    Yes: function() {
+                          jQuery.ajax({
+                              type:"POST", //post data
+                              data:{'key':key}, //if you want to send any data to view
+                              url:'/get_viewerModal/' // your url that u write in action in form tag
+                          }).done(function(result){
+                               alert("am done") //this will executes after your view executed
+                          })
+                     },
+                    Cancel: function() {
+                        $( this ).dialog( "close" );
+                    }
+               }
+           });
+    });
+<script>
+{% endblock %}

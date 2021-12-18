@@ -1,0 +1,19 @@
+{% extends "orders/layout.html" %}
+
+{% block title %}
+Menu
+{% endblock %}
+
+{% block body %}
+<h1>Menu</h1>
+{% for type, names in types.items %}
+    <h2>{{type}}</h2>
+    <ul>
+        {% for name, objects in names.items %}
+        <li>{{name}} - {% for object in objects %}
+            <a href="add/{{object.id}}">{{object.size}}  : {{object.prize}}</a>,
+            {% endfor %}</li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+{% endblock %}
